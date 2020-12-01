@@ -1,11 +1,18 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import './App.css';
 
-function App() {
+import TableComponent from 'components/Table';
+import Error from 'components/Error';
+
+const App = () => {
+
   return (
-    <div className="App">
-    
-    </div>
+      <div className="App">
+
+        <Error />
+        <TableComponent list={[]} loading={false} />
+
+      </div>
   );
 }
 
