@@ -25,7 +25,7 @@ const columns = [
   },
 ]
 
-const TableComponent = (props:propsType) => {
+const TableComponent = (props:propsType): JSX.Element => {
   const {
     list,
     loading

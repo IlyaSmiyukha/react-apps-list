@@ -1,10 +1,10 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import './App.css';
 
 import TableComponent from 'components/Table';
 import Error from 'components/Error';
 
-const App = () => {
+const App = (): JSX.Element => {
 
   return (
       <div className="App">
