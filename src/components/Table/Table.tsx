@@ -1,6 +1,7 @@
 import React from 'react';
 import { Table } from 'antd';
-import { propsType, node } from './types';
+import { propsType } from './types';
+import { node } from 'containers/App/types'
 
 import './Table.css';
 

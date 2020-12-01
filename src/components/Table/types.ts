@@ -1,11 +1,4 @@
-export type node = {
-  forkCount: number;
-  nameWithOwner: string;
-  url: string;
-  stargazerCount: number;
-  id: string;
-}
-
+import { node } from 'containers/App/types'
 
 export type propsType = {
   loading: boolean;
