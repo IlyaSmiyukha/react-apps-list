@@ -16,13 +16,11 @@ const columns = [
     title: () => 'Stars',
     dataIndex: 'stargazerCount',
     key: 'stars',
-    render: (stars: string) => stars,
   },
   {
     title: 'Forks',
     dataIndex: 'forkCount',
     key: 'forks',
-    render: (forks: string) => forks,
   },
 ]
 
