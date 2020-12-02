@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { useQuery } from '@apollo/client';
 import './App.css';
 
 import TableComponent from 'components/Table';
 import Error from 'components/Error';
+import { Button } from 'antd';
 
 import { node } from './types'
 
@@ -11,7 +12,7 @@ import { getRelosList } from 'api/ListApi'
 
 const App = (): JSX.Element => {
 
-  const { loading, data, error } = useQuery(
+  const { loading, data, error, fetchMore } = useQuery(
     getRelosList,
     {
       variables: {
@@ -26,8 +27,22 @@ const App = (): JSX.Element => {
       <div className="App">
 
         {error && <Error />}
-        {!error && <TableComponent list={list} loading={loading} />}
 
+        {
+          !error && <Fragment>
+            <TableComponent list={list} loading={loading} />
+
+            <Button
+              disabled={data && !data.search.pageInfo.hasNextPage}
+              onClick={() => {
+                fetchMore({
+                  variables: {
+                    cursor: data.search.pageInfo.endCursor
+                  }
+                })
+              }}>Load more</Button>
+          </Fragment>
+        }
       </div>
   );
 }

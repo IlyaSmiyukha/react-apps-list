@@ -19,7 +19,17 @@ const authLink = setContext((_, { headers }) => {
 });
 
 
+const cache = new InMemoryCache({
+  typePolicies: {
+    Query: {
+      fields: {
+        search: relayStylePagination(),
+      },
+    },
+  },
+});
+
 export const apolloClient = new ApolloClient({
   link: authLink.concat(httpLink),
-  cache: new InMemoryCache()
+  cache
 });
